@@ -8,7 +8,7 @@ var users = require('../models/objects/users');
 //more validations should be added to this method
 //it just shows how to create the jwt token
 router.post('/authenticate', function(req, res) {
-
+    
     let { username, password } = req.body;
     let user = users.usersData.find((user) => { //find username
         if (user.username === username) {
@@ -26,7 +26,6 @@ router.post('/authenticate', function(req, res) {
             message: "Wrong password"
         });
     } else { //create token and send
-        console.log(config.JWT_SECRET);
         
         let token = jwt.sign(user, config.JWT_SECRET, {
             expiresIn: config.JWT_EXPIRATION_TIME

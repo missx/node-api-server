@@ -1,11 +1,11 @@
 var express = require('express');
 var app = express();
-var jwt = require('express-jwt');
 var bodyParser = require('body-parser');
 
 var routes = require("./routes");
+var config = require('./config/globalConfig.js');
 
-var port = process.env.PORT || 3000;
+var port = config.PORT;
 
 app.use(bodyParser.json());
 
