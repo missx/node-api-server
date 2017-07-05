@@ -6,14 +6,15 @@
 
 // MySQL credentials
 var mysql = require('mysql');
+var config = require('../config/globalConfig');
 
 // Used to create connection
 var connectionObject = {
     connectionLimit: 20,
-    database: process.env.DB_NAME || 'rsvpday',
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASS || '',
+    database: config.DATABASE,
+    host: config.DATABASE_HOST,
+    user: config.DATABASE_USER,
+    password: config.DATABASE_PASSWORD,
     migrate: true,
     multipleStatements: true,
     dateStrings: true

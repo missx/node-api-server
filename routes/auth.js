@@ -26,7 +26,7 @@ router.post('/authenticate', function(req, res) {
             message: "Wrong password"
         });
     } else { //create token and send
-        
+        console.log(config.JWT_EXPIRATION_TIME);
         let token = jwt.sign(user, config.JWT_SECRET, {
             expiresIn: config.JWT_EXPIRATION_TIME
         });
@@ -37,5 +37,6 @@ router.post('/authenticate', function(req, res) {
     }
 
 });
+
 
 module.exports = router;

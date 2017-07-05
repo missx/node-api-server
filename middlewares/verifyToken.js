@@ -7,11 +7,10 @@ module.exports = function(req,res,next) {
         // verifies secret and checks exp
         jwt.verify(token, config.JWT_SECRET, function(err, decoded) {
             if (err) { //failed verification.
-                return res.json(
-                    {
-                        "error": true,
-                        "message": "Token is not valid"
-                    });
+                return res.json({
+                    "error": true,
+                    "message": "Token is not valid"
+                });
             }
             req.decoded = decoded;
             next(); //no error, proceed
